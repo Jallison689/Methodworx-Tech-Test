@@ -5,9 +5,9 @@ namespace Methodworx_Tech_Test.Data
 {
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext()
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
+            optionsBuilder.UseInMemoryDatabase("MethodworxTechTestDatabase");
         }
 
         public DbSet<Product> Products { get; set; }
